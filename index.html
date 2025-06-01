@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Formulir Pendaftaran</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      ::placeholder {
+        color: #9ca3af;
+        opacity: 1;
+      }
+      input[type="date"] {
+        color-scheme: dark;
+      }
+
+      select option {
+        background: #4b5563;
+        color: #f3f4f6;
+      }
+      select option:disabled {
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-900 flex items-center justify-center min-h-screen p-4 sm:p-6 selection:bg-yellow-500 selection:text-gray-900"
+  >
+    <div
+      class="container bg-gray-800 p-6 sm:p-10 rounded-xl shadow-2xl w-full max-w-xl"
+    >
+      <div class="header text-center mb-10">
+        <h3
+          class="text-3xl sm:text-4xl font-bold text-yellow-400 tracking-wider"
+        >
+          Formulir Peminatan Jurusan
+        </h3>
+      </div>
+
+      <form id="registrationForm" class="space-y-6">
+        <div>
+          <label
+            for="nama"
+            class="block mb-2 text-sm font-semibold text-yellow-300"
+            >Nama Lengkap Anda:</label
+          >
+          <input
+            type="text"
+            placeholder="Ketik nama lengkap..."
+            id="nama"
+            required
+            class="w-full p-3.5 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-gray-700 text-gray-100 text-sm placeholder-gray-400 shadow-md transition-all duration-150 ease-in-out hover:border-yellow-400"
+          />
+        </div>
+
+        <div>
+          <label
+            for="nim"
+            class="block mb-2 text-sm font-semibold text-yellow-300"
+            >Nomor Induk Mahasiswa (NIM):</label
+          >
+          <input
+            type="text"
+            placeholder="Ketik NIM..."
+            id="nim"
+            required
+            class="w-full p-3.5 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-gray-700 text-gray-100 text-sm placeholder-gray-400 shadow-md transition-all duration-150 ease-in-out hover:border-yellow-400"
+          />
+        </div>
+
+        <div>
+          <label
+            for="prodi"
+            class="block mb-2 text-sm font-semibold text-yellow-300"
+            >Pilihan Program Studi:</label
+          >
+          <select
+            id="prodi"
+            name="prodi"
+            required
+            class="w-full p-3.5 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-gray-700 text-gray-100 text-sm shadow-md appearance-none cursor-pointer transition-all duration-150 ease-in-out hover:border-yellow-400"
+          >
+            <option value="" disabled selected class="text-gray-500">
+              Pilih Program Studi...
+            </option>
+            <option value="Teknik Informatika">Teknik Informatika</option>
+            <option value="DKV">Desain Komunikasi Visual</option>
+            <option value="Manajemen">Manajemen</option>
+            <option value="Akuntansi">Akuntansi</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="tanggalLahir"
+            class="block mb-2 text-sm font-semibold text-yellow-300"
+            >Tanggal Kelahiran:</label
+          >
+          <input
+            type="date"
+            id="tanggalLahir"
+            name="tanggalLahir"
+            required
+            class="w-full p-3.5 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-gray-700 text-gray-100 text-sm shadow-md cursor-pointer transition-all duration-150 ease-in-out hover:border-yellow-400"
+          />
+        </div>
+
+        <fieldset
+          class="border-2 border-yellow-500 rounded-xl p-5 bg-transparent shadow-xl"
+        >
+          <legend class="font-bold text-yellow-400 px-3 text-lg tracking-wide">
+            Area Peminatan Utama:
+          </legend>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            <!-- Ulangi block ini untuk setiap peminatan -->
+            <div
+              class="relative flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-150 group"
+            >
+              <input
+                type="radio"
+                name="peminatan"
+                id="programming"
+                value="Programming"
+                required
+                class="dark-theme-radio absolute opacity-0 h-full w-full cursor-pointer"
+              />
+              <div
+                class="flex items-center z-10 pointer-events-none radio-visual-indicator"
+              >
+                <span
+                  class="mr-3 h-5 w-5 border-2 border-gray-500 rounded-full flex items-center justify-center transition-colors duration-150"
+                >
+                  <span
+                    class="h-2.5 w-2.5 rounded-full bg-transparent radio-checked-indicator"
+                  ></span>
+                </span>
+                <label
+                  for="programming"
+                  class="font-medium text-gray-200 text-sm"
+                  >Programming</label
+                >
+              </div>
+            </div>
+
+            <div
+              class="relative flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-150 group"
+            >
+              <input
+                type="radio"
+                name="peminatan"
+                id="uiux"
+                value="UI/UX Design"
+                class="dark-theme-radio absolute opacity-0 h-full w-full cursor-pointer"
+              />
+              <div
+                class="flex items-center z-10 pointer-events-none radio-visual-indicator"
+              >
+                <span
+                  class="mr-3 h-5 w-5 border-2 border-gray-500 rounded-full flex items-center justify-center transition-colors duration-150"
+                >
+                  <span
+                    class="h-2.5 w-2.5 rounded-full bg-transparent radio-checked-indicator"
+                  ></span>
+                </span>
+                <label for="uiux" class="font-medium text-gray-200 text-sm"
+                  >UI/UX Design</label
+                >
+              </div>
+            </div>
+
+            <!-- Tambahkan pilihan lainnya sesuai format di atas -->
+            <div
+              class="relative flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-150 group"
+            >
+              <input
+                type="radio"
+                name="peminatan"
+                id="desain"
+                value="Desain Grafis"
+                class="dark-theme-radio absolute opacity-0 h-full w-full cursor-pointer"
+              />
+              <div
+                class="flex items-center z-10 pointer-events-none radio-visual-indicator"
+              >
+                <span
+                  class="mr-3 h-5 w-5 border-2 border-gray-500 rounded-full flex items-center justify-center transition-colors duration-150"
+                >
+                  <span
+                    class="h-2.5 w-2.5 rounded-full bg-transparent radio-checked-indicator"
+                  ></span>
+                </span>
+                <label for="desain" class="font-medium text-gray-200 text-sm"
+                  >Desain Grafis</label
+                >
+              </div>
+            </div>
+
+            <div
+              class="relative flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-150 group"
+            >
+              <input
+                type="radio"
+                name="peminatan"
+                id="jaringan"
+                value="Jaringan Komputer"
+                class="dark-theme-radio absolute opacity-0 h-full w-full cursor-pointer"
+              />
+              <div
+                class="flex items-center z-10 pointer-events-none radio-visual-indicator"
+              >
+                <span
+                  class="mr-3 h-5 w-5 border-2 border-gray-500 rounded-full flex items-center justify-center transition-colors duration-150"
+                >
+                  <span
+                    class="h-2.5 w-2.5 rounded-full bg-transparent radio-checked-indicator"
+                  ></span>
+                </span>
+                <label for="jaringan" class="font-medium text-gray-200 text-sm"
+                  >Jaringan Komputer</label
+                >
+              </div>
+            </div>
+
+            <div
+              class="relative flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-150 group"
+            >
+              <input
+                type="radio"
+                name="peminatan"
+                id="cybersecurity"
+                value="Cyber Security"
+                class="dark-theme-radio absolute opacity-0 h-full w-full cursor-pointer"
+              />
+              <div
+                class="flex items-center z-10 pointer-events-none radio-visual-indicator"
+              >
+                <span
+                  class="mr-3 h-5 w-5 border-2 border-gray-500 rounded-full flex items-center justify-center transition-colors duration-150"
+                >
+                  <span
+                    class="h-2.5 w-2.5 rounded-full bg-transparent radio-checked-indicator"
+                  ></span>
+                </span>
+                <label
+                  for="cybersecurity"
+                  class="font-medium text-gray-200 text-sm"
+                  >Cyber Security</label
+                >
+              </div>
+            </div>
+
+            <div
+              class="relative flex items-center p-3 rounded-lg hover:bg-gray-700 transition-colors duration-150 group"
+            >
+              <input
+                type="radio"
+                name="peminatan"
+                id="data"
+                value="Analisis Data"
+                class="dark-theme-radio absolute opacity-0 h-full w-full cursor-pointer"
+              />
+              <div
+                class="flex items-center z-10 pointer-events-none radio-visual-indicator"
+              >
+                <span
+                  class="mr-3 h-5 w-5 border-2 border-gray-500 rounded-full flex items-center justify-center transition-colors duration-150"
+                >
+                  <span
+                    class="h-2.5 w-2.5 rounded-full bg-transparent radio-checked-indicator"
+                  ></span>
+                </span>
+                <label for="data" class="font-medium text-gray-200 text-sm"
+                  >Analisis Data</label
+                >
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div>
+          <label
+            for="alamat"
+            class="block mb-2 text-sm font-semibold text-yellow-300"
+            >Alamat Lengkap:</label
+          >
+          <textarea
+            id="alamat"
+            rows="3"
+            placeholder="Ketik alamat lengkap..."
+            required
+            class="w-full p-3.5 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 bg-gray-700 text-gray-100 text-sm placeholder-gray-400 shadow-md transition-all duration-150 ease-in-out hover:border-yellow-400 resize-none"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full p-4 text-yellow-500 font-semibold rounded-lg bg-yellow-900 hover:bg-yellow-800 shadow-md transition-all duration-150 ease-in-out"
+        >
+          Kirim Formulir
+        </button>
+      </form>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
